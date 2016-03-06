@@ -28,10 +28,18 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: 'templates/sideMenu.html',
     controller: 'AppCtrl'
   })
-
+    .state('app.home', {
+      url: '/home',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/home.html'
+        }
+      }
+    })
+/*
   .state('app.search', {
     url: '/search',
     views: {
@@ -67,7 +75,44 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  })
+  */
+  .state('app.summary', {
+	    url: '/summary',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/orderSummary.html',
+	        controller: 'OrderSummaryCtrl'
+	      }
+	    }
+	  })
+  .state('app.history', {
+	    url: '/history',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/orderHistory.html',
+	        controller: 'OrderHistoryCtrl'
+	      }
+	    }
+	  })
+  .state('app.menu', {
+	    url: '/menu',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/menu.html',
+	        controller: 'MenuCtrl'
+	      }
+	    }
+	  })
+  .state('app.subMenu', {
+	    url: '/menu/:category',
+	    views: {
+	      'menuContent': {
+	        templateUrl: 'templates/subMenu.html',
+	        controller: 'MenuCtrl'
+	      }
+	    }
+	  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });

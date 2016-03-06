@@ -51,6 +51,15 @@ angular.module('starter.controllers', [])
     { title: 'Cowbell', id: 6 }
   ];
 })
+.controller('OrderSummaryCtrl', function($scope ) {
+})
+
+.controller('OrderHistoryCtrl', function($scope ) {
+})
+
+.controller('MenuCtrl', function($scope ) {
+})
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
+
