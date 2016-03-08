@@ -1,5 +1,12 @@
 <ion-view view-title="Menu">
   <ion-content>
-    <h1>Dish Menu</h1>
+    <h1><input type="text" class="form-control" placeholder="Search..."></h1>
+    
+     <ion-list>
+        <ion-item menu-close ng-repeat="category in dishmenu">
+           {{category.name}}
+        </ion-item>
+    </ion-list>
+   
   </ion-content>
 </ion-view>
