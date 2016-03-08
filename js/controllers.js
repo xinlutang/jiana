@@ -65,8 +65,23 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MenuCtrl', function($scope ) {
-	
+	$scope.dishid = 1;
 	$scope.dishmenu = dishMenu;
+	$scope.foundDish = true;
+	$scope.dish = $scope.dishmenu[0].dishes[0];
+	$scope.searchDish = function(id){
+		$scope.foundDish = false;
+		angular.forEach(dishMenu, function(category, catindex) {
+			 
+			angular.forEach(category.dishes, function(dish, dishindex) {
+				if(dish.id == id)  
+					$scope.dish = dish;
+				    $scope.foundDish = true;
+				});
+			});
+		
+	}
+	
 })
 .controller('SubMenuCtrl', function($scope ) {
 	
@@ -82,8 +97,8 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                 	  name:"手工素豆花",
                 	  price:2.99,
                 	  status: 0,
-                	  icon:"www/img/1.jpe",
-                	  ingredients:"tbd",
+                	  icon:"img/1.jpe",
+                	  ingredients:"四川的小伙伴们可能对手工豆花都不陌生，出了四川就很难吃到正宗的四川豆花。四川豆花与其它地方不同，吃咸口，而且豆花要口感绵密粗糙，豆香味特别重！口福居的手工豆花可是姥姥每天早上现磨豆子现做的，点豆花的时候对火候相当讲究！在湾区这手艺绝对是第一把手！绵软的豆腐配上口福居特调的花生辣椒蘸料，绝对还原正宗四川豆花！",
                 	  nutrition:"tbd",
                 	  sold:1
                   }
@@ -96,7 +111,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
 	                  	  name:"鲜榨花生豆浆",
 	                  	  price:2.00,
 	                  	  status: 0,
-	                  	  icon:"www/img/2.jpe",
+	                  	  icon:"img/2.jpe",
 	                  	  ingredients:"tbd",
 	                  	  nutrition:"tbd",
 	                  	  sold:15
@@ -106,7 +121,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
 	                	  name:"香醇红糖酒酿",
 	                	  price:4.00,
 	                	  status: 0,
-	                	  icon:"www/img/3.jpe",
+	                	  icon:"img/3.jpe",
 	                	  ingredients:"因酒酿的制作过程，本品含少量酒精",
 	                	  nutrition:"tbd",
 	                	  sold:12
@@ -116,7 +131,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
 	                	  name:"墨鱼鸡汤面",
 	                	  price:9.50,
 	                	  status: 0,
-	                	  icon:"www/img/4.jpe",
+	                	  icon:"img/4.png",
 	                	  ingredients:" ",
 	                	  nutrition:"tbd",
 	                	  sold:10
@@ -126,7 +141,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                     	  name:"酸菜肉丝面",
                     	  price:9.00,
                     	  status: 0,
-                    	  icon:"www/img/5.jpe",
+                    	  icon:"img/5.jpe",
                     	  ingredients:" ",
                     	  nutrition:"tbd",
                     	  sold:10
@@ -141,7 +156,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                       	  name:"手工小笼汤包 （冷冻 50个）",
                       	  price:25.00,
                       	  status: 0,
-                      	  icon:"www/img/6.jpe",
+                      	  icon:"img/6.jpe",
                       	  ingredients:"tbd",
                       	  nutrition:"tbd",
                       	  sold:34
@@ -151,35 +166,35 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                     	  name:"手工四川碱皮抄手 （冷冻50个）",
                     	  price:10.00,
                     	  status: 0,
-                    	  icon:"www/img/7.jpe",
+                    	  icon:"img/7.jpe",
                     	  ingredients:"tbd",
                     	  nutrition:"tbd",
                     	  sold:13
                           }
                                                                         
                         ]},
-                { name: "Side Dishes 小菜", id: 3, icon:"",
+                { name: "Side Dishes 小菜", id: 4, icon:"",
       				dishes:[
                         {
                       	  id: 8,
                       	  name:"酸辣粉",
                       	  price:8.00,
                       	  status: 0,
-                      	  icon:"www/img/8.jpe",
+                      	  icon:"img/8.jpe",
                       	  ingredients:"tbd",
                       	  nutrition:"tbd",
                       	  sold:100
                         }
                                                                         
                         ]},                
-                { name: "Meat Plates 肉类", id: 3, icon:"",
+                { name: "Meat Plates 肉类", id: 5, icon:"",
       				dishes:[
                             {
                           	  id: 9,
                           	  name:"卤牛健（附炕辣椒蘸料）",
                           	  price:12.99,
                           	  status: 0,
-                          	  icon:"www/img/9.jpe",
+                          	  icon:"img/9.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:100
@@ -189,7 +204,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                           	  name:"四川花椒熏腊肉",
                           	  price:15.99,
                           	  status: 0,
-                          	  icon:"www/img/10.jpe",
+                          	  icon:"img/10.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:92
@@ -199,7 +214,7 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                           	  name:"卤味五香猪蹄",
                           	  price:7.99,
                           	  status: 0,
-                          	  icon:"www/img/11.jpe",
+                          	  icon:"img/11.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:60
@@ -209,21 +224,21 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                             	  name:"干锅田鸡",
                             	  price:25.99,
                             	  status: 0,
-                            	  icon:"www/img/12.jpe",
+                            	  icon:"img/12.jpe",
                             	  ingredients:"tbd",
                             	  nutrition:"tbd",
                             	  sold:30
                               }
                                                                             
                             ]},  
-                { name: "Poultry Plates 家禽", id: 3, icon:"",
+                { name: "Poultry Plates 家禽", id: 6, icon:"",
       				dishes:[
                             {
                           	  id: "13",
                           	  name:"干锅双脆（鹅肠鸡脆骨）",
                           	  price:35.00,
                           	  status: 0,
-                          	  icon:"www/img/13.jpe",
+                          	  icon:"img/13.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:35
@@ -233,63 +248,63 @@ var dishMenu=[{ name: "Appetizer 开胃菜", id: 1, icon:"",
                             	  name:"香辣鸭脖",
                             	  price:8.00,
                             	  status: 0,
-                            	  icon:"www/img/14.jpe",
-                            	  ingredients:"tbd",
+                            	  icon:"img/14.jpe",
+                            	  ingredients:"人见人爱卤味五香鸭脖，拌上四川海椒油和调料，瞬间成为下酒小菜！香辣可口香料老卤和海椒调料都是口福居姥爷亲自制作，味道飘香不死咸。不含任何防腐剂添加剂，色素，请安心食用",
                             	  nutrition:"tbd",
                             	  sold:21
                               }
                                                                             
                             ]},       
-                { name: "Sea Food 海鲜", id: 3, icon:"",
+                { name: "Sea Food 海鲜", id: 7, icon:"",
       				dishes:[
                             {
                           	  id: 15,
                           	  name:"干锅香辣蟹",
                           	  price:30,
                           	  status: 0,
-                          	  icon:"www/img/15.jpe",
+                          	  icon:"img/15.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:5
                             }
                                                                             
                             ]},        
-                { name: "Vegie Plates 素菜", id: 3, icon:"",
+                { name: "Vegie Plates 素菜", id: 8, icon:"",
       				dishes:[
                             {
                           	  id: 2,
                           	  name:"手工素豆花",
                           	  price:2.99,
                           	  status: 0,
-                          	  icon:"www/img/002.jpe",
+                          	  icon:"img/2.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:"1"
                             }
                                                                             
                             ]},   
-                { name: "Special 特价", id: 3, icon:"",
+                { name: "Special 特价", id: 9, icon:"",
       				dishes:[
                             {
                           	  id: 16,
                           	  name:"梅菜扣肉（咸烧白）",
                           	  price:5.99,
                           	  status: 0,
-                          	  icon:"www/img/16.jpe",
+                          	  icon:"img/16.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:"123"
                             }
                                                                             
                             ]},  
-                { name: "Drinks 饮料", id: 3, icon:"",
+                { name: "Drinks 饮料", id: 10, icon:"",
       				dishes:[
                             {
                           	  id: 2,
                           	  name:"手工素豆花",
                           	  price:2.99,
                           	  status: 0,
-                          	  icon:"www/img/002.jpe",
+                          	  icon:"img/2.jpe",
                           	  ingredients:"tbd",
                           	  nutrition:"tbd",
                           	  sold:"67"

@@ -1,12 +1,15 @@
-<ion-view view-title="Select your dish">
-  <ion-content>
-    <h1><input type="text" class="form-control" placeholder="Search..."></h1>
-    
-     <ion-list>
-        <ion-item menu-close ng-repeat="category in dishmenu">
-           {{category.name}}
-        </ion-item>
-    </ion-list>
-   
-  </ion-content>
-</ion-view>
+<ion-view view-title="Select your dish"> <ion-content>
+<form name="searchForm">
+	<label for="dishid">Dish_ID : </label><input ng-model="dishid" name="dishid" placeholder="Search dishes..." ng-change="searchDish(dishid)"/>
+</form>
+<div ng-show="foundDish">
+	<div>
+		<h2 class="sub-header ">{{dish.id}}: {{dish.name}}</h2>
+		<img ng-src="{{dish.icon}}" class="img-responsive" alt="dish photo" />
+		<div>Price: {{dish.price | currency}}</div>
+		<div>sold in last 2 weeks: {{dish.sold}}</div>
+		<div>ingredients: {{dish.ingredients}}</div>
+	</div>
+</div>
+<ion-list> <ion-item menu-close
+	ng-repeat="category in dishmenu"> {{category.name}} </ion-item> </ion-list> </ion-content> </ion-view>
