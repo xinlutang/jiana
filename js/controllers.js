@@ -65,8 +65,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MenuCtrl', function($scope ) {
+	
+	$scope.dishmenu = dishMenu;
 })
-
+.controller('SubMenuCtrl', function($scope ) {
+	
+	$scope.dishmenu = dishMenu;
+})
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 });
 

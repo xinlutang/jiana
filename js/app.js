@@ -95,21 +95,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 	      }
 	    }
 	  })
-  .state('app.menu', {
-	    url: '/menu',
+  .state('app.dishmenu', {
+	    url: '/dishmenu',
 	    views: {
 	      'menuContent': {
-	        templateUrl: 'templates/menu.html',
+	        templateUrl: 'templates/dishMenu.html',
 	        controller: 'MenuCtrl'
 	      }
 	    }
 	  })
-  .state('app.subMenu', {
-	    url: '/menu/:category',
+  .state('app.submenu', {
+	    url: '/dishmenu/:categoryId',
 	    views: {
 	      'menuContent': {
-	        templateUrl: 'templates/subMenu.html',
-	        controller: 'MenuCtrl'
+	        templateUrl: 'templates/subDishMenu.html',
+	        controller: 'SubMenuCtrl'
 	      }
 	    }
 	  });
